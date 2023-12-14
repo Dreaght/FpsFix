@@ -2,6 +2,6 @@
   "compatibilityLevel": "JAVA_8",
   "package": "com.example.mod.mixins",
   "mixins": [
-    "MinecraftMixin"
+    "com.github.dreaght.mixins.MinecraftMixin"
   ]
 }
