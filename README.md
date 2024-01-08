@@ -1,3 +1,3 @@
 ## Weave Mod/LunarClient
-### Does the Lunar client not keep the maximum frame rate set on Vsync?
-#### This mod sets the frame rate to Vsync every time you start the game.
+### Tired of unlimited fps after restarting the game, even though there was vsync?
+#### This mod keeps vsync state after game restart
