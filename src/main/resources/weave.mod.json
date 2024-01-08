@@ -1,11 +1,5 @@
 {
-  "mixinConfigs": [
-    "fpsfix.mixins.json"
-  ],
   "entrypoints": [
     "com.github.dreaght.FpsFix"
-  ],
-  "hooks": [
-    "com.github.dreaght.hook.MinecraftHook"
   ]
 }
