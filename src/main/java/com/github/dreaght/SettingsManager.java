@@ -44,11 +44,4 @@ public class SettingsManager {
         }
         return false;
     }
-
-    public static void main(String[] args) {
-        saveSettings(true);
-
-        boolean isEnabled = isEnabled();
-        System.out.println("Is Enabled: " + isEnabled);
-    }
 }

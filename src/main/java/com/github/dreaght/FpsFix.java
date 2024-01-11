@@ -18,6 +18,7 @@ public class FpsFix implements ModInitializer {
         if (SettingsManager.isEnabled()) {
             Minecraft minecraft = Minecraft.getMinecraft();
             minecraft.gameSettings.enableVsync = true;
+            minecraft.gameSettings.limitFramerate = 144;
         }
     }
 
