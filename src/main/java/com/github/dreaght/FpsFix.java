@@ -7,6 +7,10 @@ import net.weavemc.loader.api.event.ShutdownEvent;
 import net.weavemc.loader.api.event.StartGameEvent;
 import net.weavemc.loader.api.event.SubscribeEvent;
 
+import java.awt.DisplayMode;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+
 public class FpsFix implements ModInitializer {
     @Override
     public void preInit() {
@@ -18,7 +22,7 @@ public class FpsFix implements ModInitializer {
         if (SettingsManager.isEnabled()) {
             Minecraft minecraft = Minecraft.getMinecraft();
             minecraft.gameSettings.enableVsync = true;
-            minecraft.gameSettings.limitFramerate = 144;
+            minecraft.gameSettings.limitFramerate = getMonitorRefreshRate();
         }
     }
 
@@ -26,5 +30,17 @@ public class FpsFix implements ModInitializer {
     public void onShutdown(ShutdownEvent ev) {
         Minecraft minecraft = Minecraft.getMinecraft();
         SettingsManager.saveSettings(minecraft.gameSettings.enableVsync);
+    }
+
+    public static int getMonitorRefreshRate() {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice[] devices = ge.getScreenDevices();
+
+        if (devices.length > 0) {
+            DisplayMode mode = devices[0].getDisplayMode();
+            return mode.getRefreshRate();
+        } else {
+            return -1;
+        }
     }
 }
